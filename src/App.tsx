@@ -5,7 +5,7 @@ import {Header} from '~sections'
 
 const App: React.FC = () => {
 	return (
-		<div className={'mt-40'}>
+		<div className={'mt-20 text-grey-200'}>
 
 			<Header/>
 		</div>

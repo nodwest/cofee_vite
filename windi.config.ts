@@ -1,6 +1,40 @@
 import { defineConfig } from 'vite-plugin-windicss'
 import shortcuts from './windi.shortcuts'
 
+const toRem = (px: number) => `${Math.round((px / 16) * 100) / 100}rem`
+
+const array = (max: number) => new Array(max).fill(0).map((_, index) => index)
+
+const spacing = array(999).reduce((sum, item) => ({ ...sum, [item]: toRem(item) }), {})
+
+const defaultValues = {
+	'1/2': '50%',
+	'1/3': '33.333%',
+	'1/4': '25%',
+	'1/5': '20%',
+	'1/6': '16.667%',
+	'1/7': '14.286',
+	'1/8': '12.5%',
+	'1/9': '11.111%',
+	'1/10': '10%',
+	'20%': '20%',
+	'25%': '25%',
+	'30%': '30%',
+	'33%': '33.333%',
+	'40%': '40%',
+	'50%': '50%',
+	'66%': '66.666%',
+	'75%': '75%',
+	'85%': '85%',
+	'90%': '90%',
+	'95%': '95%',
+	full: '100%',
+	'150%': '150%',
+	inherit: 'inherit',
+	auto: 'auto',
+	fit: 'fit-content'
+}
+
 const borderDirections = ['border-t', 'border-r', 'border-b', 'border-l']
 
 const loaderColors = ['default', 'white', 'red', 'gray']
@@ -43,29 +77,98 @@ export default defineConfig({
 	theme: {
 		extend: {
 			colors: {
-				overlay: 'rgba(0,0,0,0.3)',
-				error: '#E01F19',
-				default: '#000000',
-				red: '#E1315B',
-				blue: '#2196F3',
-				blue_dark: '#4350AF',
-				gray: {
-					40: '#F3F3F3',
-					50: '#737372',
-					100: '#C0BFC0',
-					150: '#DEDEDE',
-					200: '#E2E2E2',
-					300: '#FAFAFA',
-					350: '#F4F4F4',
-					400: '#848484',
-					500: '#4F4F4F'
+				black: {
+					100: '#262525'
+				},
+				grey: {
+					0: '#FFFFFF',
+					50: '#F6F6F4',
+					100: '#F6F7F4',
+					200: '#888888'
+				},
+				green: {
+					100: '#D6DBCF',
+					200: '#ADBF8F',
+					300: '#577153',
+					400: '#485C44',
+					500: '#31412E'
+				},
+				yellow: {
+					100: '#FDC12B'
+				},
+				red: {
+					100: '#FFEAEA',
+					200: '#DB4949'
+				},
+				brown: {
+					100: '#623636'
 				}
 			},
 			width: {
-				unset: 'unset'
+				...spacing,
+				...defaultValues
 			},
-			ringWidth: {
-				no: 'none'
+			height: {
+				...spacing,
+				...defaultValues
+			},
+			spacing: {
+				...spacing,
+				...defaultValues
+			},
+			borderWidth: {
+				...spacing,
+				...defaultValues
+			},
+			borderRadius: {
+				...spacing,
+				...defaultValues
+			},
+			maxWidth: {
+				...spacing,
+				...defaultValues
+			},
+			minWidth: {
+				...spacing,
+				...defaultValues,
+				400: toRem(400),
+				800: toRem(800)
+			},
+			top: { ...spacing, ...defaultValues, 400: toRem(400), 800: toRem(800) },
+			bottom: {
+				...spacing,
+				...defaultValues,
+				400: toRem(400),
+				800: toRem(800)
+			},
+			fontSize: {
+				...spacing,
+				xs: '0.75rem',
+				sm: '0.875rem',
+				md: '1rem',
+				lg: '1.125rem',
+				xl: '1.25rem',
+				'2xl': '1.875rem',
+				'3xl': '2.875rem'
+			},
+			rotate: {
+				'-180': '-180deg',
+				'-90': '-90deg',
+				'-45': '-45deg',
+				'-12': '-12deg',
+				'-6': '-6deg',
+				'-3': '-3deg',
+				'-2': '-2deg',
+				'-1': '-1deg',
+				0: '0deg',
+				1: '1deg',
+				2: '2deg',
+				3: '3deg',
+				6: '6deg',
+				12: '12deg',
+				45: '45deg',
+				90: '90deg',
+				180: '180deg'
 			}
 		},
 		screens: {

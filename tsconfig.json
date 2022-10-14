@@ -21,6 +21,8 @@
       "~pages": ["src/pages/EXPORT.ts"],
       "~types": ["src/types/EXPORT.ts"],
       "~elements": ["src/elements/EXPORT.ts"],
+      "~ui": ["src/elements/ui/EXPORT.ts"],
+      "~ux": ["src/elements/ux/EXPORT.ts"],
       "~components": ["src/components/EXPORT.ts"],
       "~utils": ["src/utils/EXPORT.ts"],
       "~seo": ["src/components/seo/EXPORT.ts"],
