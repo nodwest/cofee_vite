@@ -38,7 +38,7 @@ export default defineConfig({
 		loaderBorders()
 	],
 	// attributify: true,
-	alias: {},
+	alias:{},
 	shortcuts,
 	theme: {
 		extend: {
