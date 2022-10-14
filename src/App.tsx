@@ -1,11 +1,14 @@
 import React from 'react'
 
-const App = () => {
-  return (
-    <div className={'mt-40'}>
-      ls
-    </div>
-  )
+interface App {
+
 }
 
+const App: React.FC<App> = () => {
+	return (
+		<div className={'mt-40'}>
+       lsss
+		</div>
+	)
+}
 export default App
